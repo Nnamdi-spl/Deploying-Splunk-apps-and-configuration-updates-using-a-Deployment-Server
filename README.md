@@ -31,11 +31,16 @@ In this project, a deployment server is used to push apps and configuration upda
 
 
 <br />
-Install Splunk in 11 instances running in AWS with labels:  <br/>
+Install Splunk in 11 instances running in AWS with labels.
+The Deployment server needs to be placed on the network in such a way that all the Universal Forwarders can communicate with it. 
+This means that firewalls will need to be opened up for the Splunk Management Port to the Deployment Server (TCP:8089 by default):  <br/>
 <img src="https://user-images.githubusercontent.com/112047285/204436198-f5044d28-863b-460f-bb74-4dcaa8cf93cc.png" height="80%" width="80%"/>
 <br />
 <br />
-Configure the Forwarders to connect with the Deployment Server: <br/>
+Configure the Forwarders to connect with the Deployment Server.
+Typically, to configure a client to connect to a Deployment Server, we either add it through the CLI (via splunk set deploy-poll servername.mydomain.com:8089)
+or we edit the deploymentclient.conf file in /opt/splunk/etc/system/local as shown below and restart. As you can guess, we update the 
+targetUri to point to the address and management port of the Deployment Server: <br/>
 <img src="https://user-images.githubusercontent.com/112047285/204436706-cb9a49cd-5639-4fa7-97cc-13b39f690173.png" height="80%" width="80%"/>
 <br />
 <br />
@@ -43,12 +48,16 @@ Verify Client connection through Forwarder Management Console:  <br/>
 <img src="https://user-images.githubusercontent.com/112047285/204437310-e9ccc044-eaf7-4cd5-9b4c-6eceee99998f.png" height="80%" width="80%"/>
 <br />
 <br />
-Create and deploy apps on the Deployment Server to Clients:  <br/>
+Create Apps and Serverclasses and deploy Apps on the Deployment Server to Clients.
+The Apps need to all be placed in the /opt/splunk/etc/deployment-apps/ directory. Once these are place here, they will be visible in the
+Splunk Web Interface from the Forwarder Management page as shown below:  <br/>
 <img src="https://user-images.githubusercontent.com/112047285/204437888-19764f72-b28e-41da-a325-0d08e3348cd0.png" height="80%" width="80%"/>
                                                              
 <br />
 <br />
-Verify Forwarder activities and communication to the indexers on the Monitoring Console:  <br/>
+Verify Forwarder activities and communication to the indexers on the Monitoring Console .
+For this use case,the forwarders are connected to and indexing cluster and Forwarder monitoring is enabled on the 
+monitoring console of the Cluster Master:  <br/>
 <img src="https://user-images.githubusercontent.com/112047285/204438669-4d55f255-d7c5-4589-8387-85c7ada8c248.png" height="80%" width="80%"/>
 <br />
 <br />
