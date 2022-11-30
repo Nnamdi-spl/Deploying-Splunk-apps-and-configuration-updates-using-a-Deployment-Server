@@ -26,6 +26,11 @@ In this project, a deployment server is used to push apps and configuration upda
 - <b>Universal Forwarder2 - uf2</b>
 - <b>Universal Forwarder3 - uf3</b>
 - <b>Deployment Server - dm</b>
+<h2>Lab Assumptions:</h2>
+
+- <b>3 Search Head Cluster with Deployer</b>
+- <b>3 Indexer Cluster with a Cluster Manager</b>
+- <b>Cluster Master colocated as License Master and Mointoring console</b>
 <h2>Program walk-through:</h2>
 
 
