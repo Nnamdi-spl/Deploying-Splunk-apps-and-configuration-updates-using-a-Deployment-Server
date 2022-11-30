@@ -60,7 +60,7 @@ Splunk Web Interface from the Forwarder Management page as shown below:  <br/>
                                                              
 <br />
 <br />
-Verify Forwarder activities and communication to the indexers on the Monitoring Console .
+Verify Forwarder activities and communication to the indexers on the Monitoring Console.
 For this use case,the forwarders are connected to and indexing cluster and Forwarder monitoring is enabled on the 
 monitoring console of the Cluster Master:  <br/>
 <img src="https://user-images.githubusercontent.com/112047285/204438669-4d55f255-d7c5-4589-8387-85c7ada8c248.png" height="80%" width="80%"/>
